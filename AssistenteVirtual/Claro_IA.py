@@ -73,9 +73,18 @@ with sr.Microphone() as source:
 
                 chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe %s'
 
-                webbrowser.get(chrome_path).open(servico_escolhido)         
+                webbrowser.get(chrome_path).open(servico_escolhido)   
 
-            frase_continuar = "Posso ajudar com algo mais? Responda sim para continuar e não para finalizar!"
+            if 'onde' in acao.lower() or 'jogo' in acao.lower() or 'imitação' in acao.lower():            
+                frase_retorno = "O Filme \'o jogo da imitação\' pode ser visto nas plataformas HBO Max e Amazon Prime Video"
+                print(frase_retorno)
+                retorno(frase_retorno)
+                frase_retorno_2 = "Ele também pode ser alugado por 2 reais e 90 centavos no Youtube, Google Play e Apple TV"
+                print(frase_retorno_2)
+                retorno(frase_retorno_2)
+                   
+
+            frase_continuar = "Posso te ajudar em mais alguma coisa? Fale \'não\' caso não precise de mais ajuda"
             retorno(frase_continuar)
             acao = str(ouvir())
             print(f'Você disse {acao}')
@@ -87,4 +96,5 @@ with sr.Microphone() as source:
             else:
                 retorno('No que posso te ajudar?')
         except:
-            retorno('Desculpe, não entendi. poderia repetir por favor?')
+            retorno('Desculpe, não entendi. Ainda estou aprendendo')
+            break
