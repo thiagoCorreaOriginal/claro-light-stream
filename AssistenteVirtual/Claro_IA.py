@@ -4,6 +4,7 @@ Instalar as seguintes bibliotecas:
 pip install pyttsx3
 pip install pyaudio
 pip install beautifulsoup4
+pip install SpeechRecognition
 
 '''
 
@@ -53,14 +54,33 @@ with sr.Microphone() as source:
             acao = str(ouvir())
             print("Você disse: " + acao)
            
+            if 'disney' in acao.lower():
+                servico_escolhido = 'https://www.disneyplus.com/pt-br/home'
 
+                chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe %s'
+
+                webbrowser.get(chrome_path).open(servico_escolhido)
+
+            if 'marvel' in acao.lower():
+                servico_escolhido = 'https://www.disneyplus.com/pt-br/brand/marvel'
+
+                chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe %s'
+
+                webbrowser.get(chrome_path).open(servico_escolhido)     
+
+            if 'gavião arqueiro' in acao.lower():            
+                servico_escolhido = 'https://www.disneyplus.com/pt-br/series/gaviao-arqueiro/11Zy8m9Dkj5l'
+
+                chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe %s'
+
+                webbrowser.get(chrome_path).open(servico_escolhido)         
 
             frase_continuar = "Posso ajudar com algo mais? Responda sim para continuar e não para finalizar!"
             retorno(frase_continuar)
             acao = str(ouvir())
             print(f'Você disse {acao}')
             
-            if 'não' in acao:
+            if 'não' in acao.lower():
                 retorno('Espero ter ajudado! Até mais!')
 
                 break
