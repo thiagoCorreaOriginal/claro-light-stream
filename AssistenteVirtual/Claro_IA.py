@@ -53,7 +53,8 @@ with sr.Microphone() as source:
         try:
             acao = str(ouvir())
             print("Você disse: " + acao)
-           
+            retorno(acao)
+
             if 'disney' in acao.lower():
                 servico_escolhido = 'https://www.disneyplus.com/pt-br/home'
 
@@ -96,5 +97,5 @@ with sr.Microphone() as source:
             else:
                 retorno('No que posso te ajudar?')
         except:
-            retorno('Desculpe, não entendi. Ainda estou aprendendo')
-            break
+            retorno('No que posso te ajudar?')
+           
